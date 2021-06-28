@@ -6,10 +6,8 @@ menu_string = " a) Ver lista de personas\n b) Buscar persona\n c) Ver ficha de p
 def main():
     #print(menu_string)
     Person.full_list('estudiantes.xlsx')
-    print(Person.All_Person)
 
     Books.full_list('libros.xlsx')
-    print(Books.All_Books)
 
 def option_a():
     print(Person.to_String())
@@ -27,6 +25,27 @@ def option_c(code):
         print("Codigo: " + str(person[0]) + " || Nombre: " + person[1] + " || Correo: " + person[2] + "\n")
     else:
         print("La persona no se encuentra en la base de datos.")
+
+def option_d():
+    print(Books.to_String())
+
+def option_e(name, gender, autor):
+    book = Books.get_by_name_gener_autor(name, gender, autor)
+
+    if(book != None):
+        print("Id: " + str(book[0]) + " || Nombre: " + book[1]+ " || Genero: " + book[2]+ " || Autor: " + book[3] + "\n")
+    else:
+        print("El libro buscado no está disponible en la base de datos. \n")
+
+def option_f(code):
+    book = Books.get_by_code(code)
+
+    if (book != None):
+        print("Id: " + str(book[0]) + " || Nombre: " + book[1] + " || Genero: " + book[2] + " || Autor: " + book[
+            3] + "\n")
+    else:
+        print("El libro buscado no está disponible en la base de datos. \n")
+
 
 
 if(__name__ == "__main__"):

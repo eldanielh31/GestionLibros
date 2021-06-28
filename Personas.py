@@ -25,7 +25,10 @@ class Person:
             # Obtener el valor de las columnas y meterlos en lista
             for column_i in range(column_start, max_column):
                 cell_obj = sheet_obj.cell(row=row_i, column=column_i)
-                temp_list.append(cell_obj.value)
+                if(column_i == 1):
+                    temp_list.append((cell_obj.value))
+                else:
+                    temp_list.append(str(cell_obj.value))
 
             #Lista con codigo de libros prestados
             books = []
